@@ -1,9 +1,12 @@
 import React from "react";
+import HomeHeader from "./HomeHeader";
 
 const Home = () => {
-  return <div className=" p-3 text-3xl">
-    hellow
-  </div>;
+  return (
+    <div className="">
+      <HomeHeader />
+    </div>
+  );
 };
 
 export default Home;
