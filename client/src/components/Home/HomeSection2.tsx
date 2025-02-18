@@ -11,8 +11,9 @@ const HomeSection2 = () => {
     { name: "Publix", logo: logo },
   ]);
   return (
-    <div className="grid justify-center text-white bg-[#000] py-10">
+    <div className="grid justify-center text-white bg-[#000] py-3">
       <h2 className="text-center text-xl font-thin uppercase my-4">
+        <img src="/SliderOne/img1." alt="" />
         Also Available At
       </h2>
       <div className="grid grid-flow-row justify-start md:grid-flow-col gap-4">
@@ -25,7 +26,7 @@ const HomeSection2 = () => {
               src={item.logo}
               width={75}
               height={75}
-              className="rounded-full"
+              className="rounded-full invert-[100%]"
             />
           </div>
         ))}

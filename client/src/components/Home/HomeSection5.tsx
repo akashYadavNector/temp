@@ -8,7 +8,7 @@ const HomeSection5 = () => {
     <section className="bg-black flex justify-center text-white">
       <div className="w-3/5 grid grid-cols-10 py-10">
         <span className="col-span-3 flex justify-end">
-          <img src={logo} alt="NO Image" className=" rounded-full" />
+          <img src={logo} alt="NO Image" className=" rounded-full invert-[100%]" />
         </span>
         <div className="col-span-7 flex flex-col mx-4">
           <h1 className="uppercase font-bold text-2xl">TRY IT, RISK-FREE!</h1>

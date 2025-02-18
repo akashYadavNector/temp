@@ -71,8 +71,8 @@ const Footer = () => {
           {/* Goli Logo / Certified B Corporation */}
           <div className="flex flex-col items-start md:items-end">
             <img
-              src="/purnalogo.png"
-              alt="Purna Gummies Nutrition"
+              src="/logo/purnalogo.png"
+              alt="Purna Gummies Nutrition" 
               className="h-18 mb-14"
             />
             {/* <div className="flex flex-col items-center">

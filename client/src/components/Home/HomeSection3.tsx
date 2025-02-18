@@ -8,26 +8,21 @@ import { FaArrowRight } from "react-icons/fa";
 
 const HomeSection3 = () => {
   const [paginationItem, setPaginationItem] = useState([
-    { name: "product11", image: "/Gummies/11.jpg", link: "/product11" },
-    { name: "product12", image: "/Gummies/12.jpg", link: "/product12" },
-    { name: "product13", image: "/Gummies/13.jpg", link: "/product13" },
-    { name: "product14", image: "/Gummies/14.jpg", link: "/product14" },
-    { name: "product15", image: "/Gummies/15.jpg", link: "/product15" },
-    { name: "product16", image: "/Gummies/16.jpg", link: "/product16" },
-    { name: "product17", image: "/Gummies/17.jpg", link: "/product17" },
-    { name: "product18", image: "/Gummies/18.jpg", link: "/product18" },
-    { name: "product19", image: "/Gummies/19.jpg", link: "/product19" },
-    { name: "product20", image: "/Gummies/20.jpg", link: "/product20" },
-    { name: "product21", image: "/Gummies/21.jpg", link: "/product21" },
-    { name: "product22", image: "/Gummies/22.jpg", link: "/product22" },
+    { name: "product1", image: "/SliderOne/img1.png", link: "/product1" },
+    { name: "product2", image: "/SliderOne/img2.png", link: "/product2" },
+    { name: "product3", image: "/SliderOne/img3.png", link: "/product3" },
+    { name: "product4", image: "/SliderOne/img4.png", link: "/product4" },
+    { name: "product5", image: "/SliderOne/img5.png", link: "/product5" },
+    { name: "product6", image: "/SliderOne/img6.png", link: "/product6" },
+    { name: "product7", image: "/SliderOne/img7.jpg", link: "/product7" },
   ]);
 
   return (
-    <div className=" h-96 bg-blue-100">
+    <div className=" h-[26rem] bg-gray-200 py-10">
       <div className="mx-5">
         <Swiper
-          spaceBetween={50}
-          slidesPerView={3}
+          // spaceBetween={}
+          slidesPerView={5}
           modules={[Pagination, Navigation, Autoplay]}
           pagination={{
             clickable: true,
@@ -42,22 +37,21 @@ const HomeSection3 = () => {
           {paginationItem.map((item) => (
             <SwiperSlide
               key={item.name}
-              className="relative cursor-pointer my-10"
+              className="relative cursor-pointer"
             >
-              <div className="relative group">
+              <div className="relative group flex justify-center mx-0">
                 <img
                   src={item.image}
                   alt="No Image Found"
-                  className="rounded-lg transition-all duration-300 group-hover:brightness-50" // Adjust brightness on hover
+                  className="rounded-lg transition-all duration-300 group-hover:brightness-50 w-56"
                 />
-                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>{" "}
-                {/*Black shadow*/}
-                <h1 className="absolute top-3 left-[40%] capitalize text-[#fcee33] font-bold text-lg">
+                <h1 className="flex items-center capitalize absolute top-5 left-[36%] text-yellow-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {item.name}
                 </h1>
+
                 <a
                   href={item.link}
-                  className="flex items-center absolute bottom-5 left-[40%] text-yellow-50"
+                  className="flex items-center absolute bottom-5 left-[35%] text-yellow-50"
                 >
                   <span>Discover</span> <FaArrowRight />
                 </a>
@@ -65,12 +59,12 @@ const HomeSection3 = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        {/*Custom styles*/}
         <style>
           {`
             .swiper-pagination {
               position: relative; /* Change to relative */
               margin-top: 40px; /* Adjust value as needed */
+              margin-bottom:20px;
               bottom: 0;
             }
 

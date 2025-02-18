@@ -89,7 +89,7 @@ const HomeSection4 = () => {
     },
   ]);
   return (
-    <div className=" grid grid-flow-row justify-center gap-9 bg-blue-300 py-8">
+    <div className=" grid grid-flow-row justify-center gap-9 bg-[#fff] py-8">
       <h1 className=" text-center text-3xl font-semibold ">
         Over 1,000,000+ Reviews from Happy Customers.
       </h1>
@@ -108,8 +108,8 @@ const HomeSection4 = () => {
         >
           {reviews.map((item) => (
             <SwiperSlide>
-              <div className="grid grid-rows-5 gap-2 bg-gray-300 hover:bg-gray-400 duration-300 rounded-lg p-4 mx-4 my-6">
-                <p className=" row-span-4 text-center px-4">{item.text}</p>
+              <div className="grid grid-rows-5 gap-2 shadow-lg shadow-gray-600 bg-gray-300 hover:bg-gray-400 duration-300 rounded-lg h-[250px] p-4 mx-4 my-6">
+                <p className=" row-span-4 flex justify-center items-center px-4 text-[#666363] text-center hover:text-white font-semibold duration-300">{item.text}</p>
                 <span className="flex row-span-1 justify-center">
                   {Array.from({ length: item.stars }).map(() => (
                     <IoIosStar color="yellow" fontSize={25} />
