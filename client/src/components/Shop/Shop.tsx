@@ -143,6 +143,9 @@ const Shop = () => {
     },
   ];
 
+  const handlePackButtonButtonClick = (e: any) => {
+    console.log(e);
+  };
   console.log(images);
 
   return (
@@ -159,15 +162,17 @@ const Shop = () => {
             </div>
           ))}
         </div>
-        <div className=" grid grid-flow-row grid-cols-2 px-12 mx-12">
+        <div className="grid grid-flow-row lg:grid-cols-1 [@media(min-width:1760px)]:grid-cols-3 xl:grid-cols-2 px-12 lg:mx-36 md:mx-20">
           {images.map((item) => (
-            <div className=" grid grid-flow-row bg-blue-200 rounded-lg m-2 min-h-56">
+            <div className="grid grid-flow-row bg-blue-200 rounded-lg m-2 min-h-56 grid-cols-[1fr_1fr]">
               <span className=" col-span-2">{item.name}</span>
-              <img
-                src={item.link}
-                alt="No Image found"
-                className=" col-span-1 h-auto"
-              />
+              <div className=" col-span-1 flex align-top">
+                <img
+                  src={item.link}
+                  alt="No Image found"
+                  className="object-contain h-72 w-full"
+                />
+              </div>
               <div className=" col-span-1 flex flex-col capitalize">
                 <div className=" flex flex-col p-4 bg-white rounded-xl m-2 cursor-pointer border border-gray-400">
                   <span className=" font-bold">subscribe & save</span>
@@ -181,7 +186,7 @@ const Shop = () => {
                     </span>
                   </p>
                 </div>
-                <div className=" flex flex-col focus:bg-blue-500 focus:text-white p-4 bg-white rounded-xl m-2 cursor-pointer border border-gray-400">
+                <div className=" flex flex-col p-4 bg-white rounded-xl m-2 cursor-pointer border border-gray-400">
                   <span className=" font-bold">One-time Purchase</span>
                   <b className=" text-3xl font-bold normal-case">
                     $14.98 <span className="text-sm text-blue-400">each</span>
@@ -195,10 +200,28 @@ const Shop = () => {
                 </div>
               </div>
               <div className="flex  justify-center col-span-2 my-4">
-                <button className=" bg-white py-4 px-11 rounded-full font-semibold uppercase ring-1 ring-gray-400 mx-1">pack 1</button>
-                <button className=" bg-white py-4 px-11 rounded-full font-semibold uppercase ring-1 ring-gray-400 mx-1">pack 2</button>
-                <button className=" bg-white py-4 px-11 rounded-full font-semibold uppercase ring-1 ring-gray-400 mx-1">pack 3</button>
+                <button
+                  onClick={handlePackButtonButtonClick}
+                  className="  bg-blue-700 text-white py-4 px-11 rounded-full font-semibold uppercase ring-1 ring-gray-400 mx-1"
+                >
+                  pack 1
+                </button>
+                <button
+                  onClick={handlePackButtonButtonClick}
+                  className=" bg-white py-4 px-11 rounded-full font-semibold uppercase ring-1 ring-gray-400 mx-1"
+                >
+                  pack 2
+                </button>
+                <button
+                  onClick={handlePackButtonButtonClick}
+                  className=" bg-white py-4 px-11 rounded-full font-semibold uppercase ring-1 ring-gray-400 mx-1"
+                >
+                  pack 3
+                </button>
               </div>
+              <button className=" col-span-2 py-3 my-4 m-2 px-2 rounded-lg uppercase bg-blue-600 text-white hover:bg-blue-700 text-xl font-semibold duration-300">
+                add to cart
+              </button>
             </div>
           ))}
         </div>
