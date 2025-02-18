@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../Home/HomeHeader";
-
+import shopStyle from "./Shop.module.css";
 const Shop = () => {
   const productLogoList = [
     {
@@ -152,74 +152,104 @@ const Shop = () => {
     <>
       <Header />
       <div>
-        <div className="text-4xl  flex overflow-x-auto mx-16">
-          {productLogoList.map((item) => (
-            <div className=" mt-16 flex flex-col items-start cursor-pointer relative">
-              <img src={item.link} alt="No image found" />
-              <h2 className=" text-center text-sm font-semibold  w-full text-black absolute bottom-4 hover:text-blue-500 duration-300">
+        <div
+          className={`text-4xl flex mx-4  md:mx-16 ${shopStyle.scrollableContainer}`}
+        >
+          {productLogoList.map((item, index) => (
+            <div
+              key={index}
+              className="mt-16 flex flex-col items-start cursor-pointer relative"
+            >
+              <img
+                src={item.link}
+                alt="No image found"
+                className="min-w-40 lg:min-w-32"
+              />
+              <h2 className="text-center text-sm font-semibold w-full text-black absolute bottom-4 hover:text-blue-500 duration-300">
                 {item.title}
               </h2>
             </div>
           ))}
         </div>
-        <div className="grid grid-flow-row lg:grid-cols-1 [@media(min-width:1760px)]:grid-cols-3 xl:grid-cols-2 px-12 lg:mx-36 md:mx-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2  3xl:grid-cols-3 gap-4 px-4 md:mx-32 lg:px-12">
           {images.map((item) => (
-            <div className="grid grid-flow-row bg-blue-200 rounded-lg m-2 min-h-56 grid-cols-[1fr_1fr]">
-              <span className=" col-span-2">{item.name}</span>
-              <div className=" col-span-1 flex align-top">
-                <img
-                  src={item.link}
-                  alt="No Image found"
-                  className="object-contain h-72 w-full"
-                />
-              </div>
-              <div className=" col-span-1 flex flex-col capitalize">
-                <div className=" flex flex-col p-4 bg-white rounded-xl m-2 cursor-pointer border border-gray-400">
-                  <span className=" font-bold">subscribe & save</span>
-                  <b className=" text-3xl font-bold normal-case">
-                    $13.48 <span className="text-sm text-blue-400">each</span>
-                  </b>
-                  <p className=" text-sm">
-                    Total:$62.98
-                    <span className=" line-through text-sm ml-5 text-blue-400">
-                      $25.00
-                    </span>
-                  </p>
+            <div className="bg-blue-200 rounded-lg p-4 flex flex-col">
+              {/* Product Name */}
+              <span className="text-lg font-semibold mb-4 text-center">
+                {item.name}
+              </span>
+
+              {/* Product Content Container */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* Image Container */}
+                <div className="flex justify-center items-start">
+                  <img
+                    src={item.link}
+                    alt="No Image found"
+                    className="object-contain w-full min-h-[20rem] max-h-[250px] md:max-h-[250px]"
+                  />
                 </div>
-                <div className=" flex flex-col p-4 bg-white rounded-xl m-2 cursor-pointer border border-gray-400">
-                  <span className=" font-bold">One-time Purchase</span>
-                  <b className=" text-3xl font-bold normal-case">
-                    $14.98 <span className="text-sm text-blue-400">each</span>
-                  </b>
-                  <p className=" text-sm">
-                    Total:$62.98{" "}
-                    <span className=" line-through text-sm ml-5 text-blue-400">
-                      $25.00
+
+                {/* Pricing Options Container */}
+                <div className="flex flex-col gap-3">
+                  {/* Subscribe & Save Option */}
+                  <div className="bg-white rounded-xl p-4 cursor-pointer border border-gray-400 hover:shadow-md transition-shadow">
+                    <span className="font-bold text-sm md:text-base">
+                      Subscribe & Save
                     </span>
-                  </p>
+                    <div className="text-custom-1360 md:text-3xl font-bold mt-1">
+                      $13.48 <span className="text-sm text-blue-400">each</span>
+                    </div>
+                    <p className="text-sm mt-1">
+                      Total:$62.98
+                      <span className="line-through ml-3 text-blue-400">
+                        $25.00
+                      </span>
+                    </p>
+                  </div>
+
+                  {/* One-time Purchase Option */}
+                  <div className="bg-white rounded-xl p-4 cursor-pointer border border-gray-400 hover:shadow-md transition-shadow">
+                    <span className="font-bold text-sm md:text-base">
+                      One-time Purchase
+                    </span>
+                    <div className="text-custom-1360 md:text-3xl font-bold mt-1">
+                      $14.98 <span className="text-sm text-blue-400">each</span>
+                    </div>
+                    <p className="text-sm mt-1">
+                      Total:$62.98
+                      <span className="line-through ml-3 text-blue-400">
+                        $25.00
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex  justify-center col-span-2 my-4">
+
+              {/* Pack Selection */}
+              <div className="flex flex-wrap justify-center gap-2 mt-6 text-lg">
                 <button
                   onClick={handlePackButtonButtonClick}
-                  className="  bg-blue-700 text-white py-4 px-11 rounded-full font-semibold uppercase ring-1 ring-gray-400 mx-1"
+                  className="bg-blue-700 text-white px-6 py-4  md:px-12 md:py-6 lg:px-6 lg:py-4 custom-1360:px-10 custom-1360:py-6 custom-1360:mx-3 rounded-full text-sm font-semibold uppercase ring-1 ring-gray-400 hover:bg-blue-800 transition-colors custom-550:px-12 custom-550:py-6"
                 >
                   pack 1
                 </button>
                 <button
                   onClick={handlePackButtonButtonClick}
-                  className=" bg-white py-4 px-11 rounded-full font-semibold uppercase ring-1 ring-gray-400 mx-1"
+                  className="bg-white px-6 py-4  md:px-12 md:py-6 lg:px-6 lg:py-4 custom-1360:px-10 custom-1360:py-6 custom-1360:mx-3 rounded-full text-sm font-semibold uppercase ring-1 ring-gray-400 hover:bg-gray-50 transition-colors custom-550:px-12 custom-550:py-6"
                 >
                   pack 2
                 </button>
                 <button
                   onClick={handlePackButtonButtonClick}
-                  className=" bg-white py-4 px-11 rounded-full font-semibold uppercase ring-1 ring-gray-400 mx-1"
+                  className="bg-white px-6 py-4  md:px-12 md:py-6 lg:px-6 lg:py-4 custom-1360:px-10 custom-1360:py-6 custom-1360:mx-3 rounded-full text-sm font-semibold uppercase ring-1 ring-gray-400 hover:bg-gray-50 transition-colors custom-550:px-12 custom-550:py-6"
                 >
                   pack 3
                 </button>
               </div>
-              <button className=" col-span-2 py-3 my-4 m-2 px-2 rounded-lg uppercase bg-blue-600 text-white hover:bg-blue-700 text-xl font-semibold duration-300">
+
+              {/* Add to Cart Button */}
+              <button className="w-full mt-6 py-3 px-6 rounded-lg uppercase bg-blue-600 text-white text-sm md:text-base font-semibold hover:bg-blue-700 transition-colors">
                 add to cart
               </button>
             </div>
