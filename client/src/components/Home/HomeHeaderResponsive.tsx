@@ -5,6 +5,53 @@ import { Link } from "react-router-dom";
 
 const HomeHeaderResponsive = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const products = [
+    {
+      title: "Ashwagandha Gummies",
+      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+    },
+    {
+      title: "Apple Cider Vinegar Gummies",
+      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+    },
+    {
+      title: "Probiotic+ Gummies",
+      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+    },
+    {
+      title: "Matcha Mind",
+      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+    },
+    {
+      title: "Beets Cardio Gummies",
+      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+    },
+    {
+      title: "Extra-Strength Sleep",
+      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+    },
+    {
+      title: "Dreamy Sleep Gummies",
+      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+    },
+    {
+      title: "Supergreens Gummies",
+      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+    },
+    {
+      title: "Superfruits Beauty Gummies",
+      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+    },
+    {
+      title: "Triple Action Immune Gummies",
+      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+    },
+    {
+      title: "Women's Multi Gummies",
+      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+    },
+  ];
+
   return (
     <header
       className={`fixed w-full z-50 p-3 flex justify-between items-center bg-white shadow-md md:hidden`}
@@ -62,31 +109,65 @@ const HomeHeaderResponsive = () => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex flex-col items-center justify-center text-white">
+        <div className="fixed overflow-y-scroll inset-0 bg-white z-50 flex flex-col items-center justify-start text-black">
           <FaTimes
-            size={30}
+            size={40}
             className="absolute top-5 right-5 cursor-pointer"
             onClick={() => setIsMenuOpen(false)}
           />
-          <nav className="flex flex-col gap-6 text-xl">
-            <Link to={"/shop"} onClick={() => setIsMenuOpen(false)}>
+          <div className="grid grid-flow-row grid-cols-2 gap-3 px-2 mx-4 mt-24 ">
+            {products.map((item) => (
+              <div className=" ring-1 ring-black relative">
+                <img src={item.link} alt="" />
+                <span className=" absolute top-2 text-center font-semibold">
+                  {item.title}
+                </span>
+              </div>
+            ))}
+          </div>
+          <nav className="flex flex-col w-full text-2xl py-3">
+            <button className="p-2 w-11/12 m-2 self-center rounded-lg bg-blue-600 text-white font-semibold  ">
+              Order Now
+            </button>
+            <Link
+              to={"/shop"}
+              className=" border-t-2 border-gray-500 text-center py-2 w-full"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Shop
             </Link>
-            <Link to={"/aboutus"} onClick={() => setIsMenuOpen(false)}>
+            <Link
+              to={"/aboutus"}
+              className=" border-t-2 border-gray-500 text-center py-2 w-full"
+              onClick={() => setIsMenuOpen(false)}
+            >
               About Us
             </Link>
-            <Link to={"/FAQ"} onClick={() => setIsMenuOpen(false)}>
+            <Link
+              to={"/FAQ"}
+              className=" border-y-2 border-gray-500 text-center py-2 w-full"
+              onClick={() => setIsMenuOpen(false)}
+            >
               FAQ
             </Link>
-            <button
-              className="px-4 py-2 mt-4 text-gray-900 bg-white rounded-lg font-semibold hover:bg-gray-200"
-              onClick={() => {
-                console.log("Login clicked");
-                setIsMenuOpen(false);
-              }}
-            >
-              Login
-            </button>
+            <div className="flex justify-center">
+              <button
+                className="px-4 text-white  bg-green-600 w-5/12 my-4 mx-2 py-2 rounded-lg font-semibold  "
+                onClick={() => {
+                  setIsMenuOpen(false);
+                }}
+              >
+                Login
+              </button>
+              <button
+                className="px-4 text-white  bg-teal-500 w-5/12 my-4 mx-2 py-2 rounded-lg font-semibold  "
+                onClick={() => {
+                  setIsMenuOpen(false);
+                }}
+              >
+                Register
+              </button>
+            </div>
           </nav>
         </div>
       )}

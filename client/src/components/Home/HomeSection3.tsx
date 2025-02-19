@@ -50,7 +50,7 @@ const HomeSection3 = () => {
                 <img
                   src={item.image}
                   alt="No Image Found"
-                  className="rounded-lg transition-all duration-300 group-hover:brightness-50  w-[24rem] lg:w-56 md:w-[20rem] "
+                  className="rounded-lg transition-all duration-300 group-hover:brightness-50  w-[22rem] lg:w-56 md:w-[20rem] "
                 />
                 <h1 className="flex items-center capitalize absolute top-5 left-[40%] md:left-[30%] text-yellow-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {item.name}
@@ -104,6 +104,11 @@ const HomeSection3 = () => {
             .swiper-pagination-bullet-active   {
               opacity: 1;
             }
+                  @media (max-width: 768px) { /* Adjust the max-width as needed */
+                    .swiper-button-prev,
+                    .swiper-button-next {
+                      display: none;
+      }
           `}
         </style>
       </div>
