@@ -26,7 +26,7 @@ const HomeSection2 = () => {
               height={75}
               className="rounded-full invert-[100%]"
             />
-            <span className=" text-xl font-semibold mx-3 uppercase text-gray-300">
+            <span className=" text-sm md:text-xl font-semibold mx-3 uppercase text-gray-300">
               {item.name}
             </span>
           </div>
