@@ -18,7 +18,7 @@ const HomeSection3 = () => {
   ]);
 
   return (
-    <div className=" h-[40rem] md:h-[26rem] bg-gray-200 py-10">
+    <div className=" h-[35rem] md:h-[26rem] bg-gray-200 py-10">
       <div className="mx-2 md:mx-5">
         <Swiper
           modules={[Pagination, Navigation, Autoplay]}

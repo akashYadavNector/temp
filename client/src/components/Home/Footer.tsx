@@ -16,23 +16,23 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Keep well with Goli® */}
           <div>
-            <h3 className="font-bold text-lg mb-4">
+            <h3 className="font-bold text-lg mb-4 text-center md:text-start">
               Keep well with Purna Gummies®
             </h3>
-            <p className="text-sm mb-2">
+            <p className="text-sm mb-2 text-center md:text-start">
               Subscribe to our newsletter for exclusive offers!
             </p>
-            <div className="flex">
+            <div className="flex justify-center md:justify-start ">
               <input
                 type="email"
                 placeholder="Email"
                 className="bg-gray-800 text-white rounded-l px-4 py-2 w-4/6 focus:outline-none"
               />
               <button className="bg-white text-black rounded-r px-2 py-2 w-1/6 flex justify-center items-center">
-                <FaArrowRight size={22}/>
+                <FaArrowRight size={22} />
               </button>
             </div>
-            <div className="mt-4">
+            <div className="mt-4 flex flex-col items-center md:items-start">
               <h4 className="font-semibold">FOLLOW US:</h4>
               <div className="flex space-x-4 mt-2">
                 <FaFacebook className="text-xl hover:text-gray-300 cursor-pointer" />
@@ -48,7 +48,7 @@ const Footer = () => {
           {/* Become an Ambassador / About Goli® */}
           <div>
             <h3 className="font-bold text-lg mb-4"></h3>
-            <ul>
+            <ul className="flex flex-col md:items-start items-center md:normal-case">
               <li className="mb-2 hover:text-gray-300 cursor-pointer">
                 Become an Ambassador
               </li>
@@ -72,7 +72,7 @@ const Footer = () => {
           <div className="flex flex-col items-start md:items-end">
             <img
               src="/logo/purnalogo.png"
-              alt="Purna Gummies Nutrition" 
+              alt="Purna Gummies Nutrition"
               className="h-18 mb-14"
             />
             {/* <div className="flex flex-col items-center">

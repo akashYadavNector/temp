@@ -6,13 +6,13 @@ const HomeSection5 = () => {
 
   return (
     <section className="bg-black flex justify-center text-white">
-      <div className="w-3/5 grid grid-cols-10 py-10">
+      <div className=" md:w-3/5 grid grid-cols-10 py-10">
         <span className="col-span-3 flex justify-end">
-          <img src={logo} alt="NO Image" className=" rounded-full invert-[100%]" />
+          <img src={logo} alt="NO Image" className=" rounded-full invert-[100%] h-44 md:h-auto" />
         </span>
         <div className="col-span-7 flex flex-col mx-4">
           <h1 className="uppercase font-bold text-2xl">TRY IT, RISK-FREE!</h1>
-          <p className="text-xl">
+          <p className="text-xl text-center md:text-start">
             If you’re not satisfied with our product, simply contact us and
             we’ll give you a full, 100% hassle-free refund.
           </p>
