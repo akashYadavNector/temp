@@ -90,13 +90,13 @@ const HomeSection4 = () => {
   ]);
   return (
     <div className=" grid grid-flow-row justify-center gap-9 bg-[#fff] py-8">
-      <h1 className=" text-center text-3xl font-semibold ">
+      <h1 className=" text-center text-sm lg:text-3xl font-semibold text-wrap w-[21rem] lg:w-auto">
         Over 1,000,000+ Reviews from Happy Customers.
       </h1>
       <div>
         <Swiper
-          spaceBetween={5}
-          slidesPerView={3}
+          // spaceBetween={5}
+          slidesPerView={1}
           modules={[Pagination, Navigation, Autoplay]}
           pagination={{
             clickable: true,
@@ -104,12 +104,25 @@ const HomeSection4 = () => {
           }}
           //   navigation={true}
           autoplay={{ delay: 2000, disableOnInteraction: false }}
-          className="mySwiper w-full max-w-6xl min-h-40"
+          breakpoints={{
+            640: {
+              slidesPerView: 1.5,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1280: {
+              slidesPerView: 3,
+            },
+          }}
+          className="mySwiper md:w-[40rem] text-sm lg:text-xl lg:w-full w-[21rem] max-w-6xl min-h-40 "
         >
           {reviews.map((item) => (
             <SwiperSlide>
-              <div className="grid grid-rows-5 gap-2 shadow-lg shadow-gray-600 bg-gray-300 hover:bg-gray-400 duration-300 rounded-lg h-[250px] p-4 mx-4 my-6">
-                <p className=" row-span-4 flex justify-center items-center px-4 text-[#666363] text-center hover:text-white font-semibold duration-300">{item.text}</p>
+              <div className="grid grid-rows-5 mx-4 my-6 md sm:gap-1 gap-2 shadow-lg shadow-gray-600 bg-gray-300 hover:bg-gray-400 duration-300 rounded-lg h-[250px] p-1 md:p-4 ">
+                <p className=" row-span-4 flex justify-center items-center px-2 md:px-4 text-[#666363] text-center hover:text-white font-semibold duration-300">
+                  {item.text}
+                </p>
                 <span className="flex row-span-1 justify-center">
                   {Array.from({ length: item.stars }).map(() => (
                     <IoIosStar color="yellow" fontSize={25} />

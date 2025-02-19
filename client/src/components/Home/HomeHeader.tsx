@@ -7,14 +7,17 @@ import { FaCartShopping, FaChevronDown, FaChevronRight } from "react-icons/fa6";
 import AddCart from "../Utils/AddCart";
 import Login from "../Forms/Login";
 import Register from "../Forms/Register";
+import HomeHeaderResponsive from "./HomeHeaderResponsive";
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showProductsDropdown, setShowProductsDropdown] = useState(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
+  const [showProductsDropdown, setShowProductsDropdown] =
+    useState<boolean>(false);
   const [activeCategory, setActiveCategory] = useState(null);
-  const [showCart, setShowCart] = useState(false);
+  const [showCart, setShowCart] = useState<boolean>(false);
   const [showRegisterForm, setShowRegisterForm] = useState<boolean>(true);
+
   const productCategories = [
     {
       name: "Multivitamin",
@@ -138,14 +141,14 @@ const Header = () => {
     },
   ];
 
-  const handleMouseEnterCategory = (category) => {
+  const handleMouseEnterCategory = (category: any) => {
     if (category.subcategories) {
       setActiveCategory(category.name);
     } else {
       setActiveCategory(null); // Clear active category if no subcategories
     }
   };
-  const handleClick = (event) => {
+  const handleClick = (event: any) => {
     event.preventDefault(); // Prevent default link behavior
     if (location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top
@@ -168,148 +171,152 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-      className={`
-        fixed w-full z-50 p-3 grid grid-cols-3 
-         ring-gray-400 shadow-gray-400
-        transition-all duration-500
-        ${
+    <>
+      <header
+        className={`fixed w-full hidden z-50 p-3 md:flex justify-between ring-gray-400 shadow-gray-400 transition-all duration-500 ${
           isScrolled
             ? "bg-white/60 hover:bg-white rounded-b-3xl"
             : "bg-white border-b border-1"
-        }
-      `}
-    >
-      {/* <h1 className="text-2xl"> */}
-      <Link to={"/"} onClick={handleClick}>
-        <img
-          src="/logo/purnalogo.png"
-          width={155}
-          height={155}
-          alt="Purna Logo"
-        />
-      </Link>
-      {/* </h1> */}
-      <nav className="grid grid-cols-4 items-center">
-        <div
-          className="relative group"
-          onMouseLeave={() => {
-            setShowProductsDropdown(false);
-            setActiveCategory(null);
-          }}
-        >
-          <button
-            className="capitalize text-lg hover:font-semibold text-center p-2 rounded-lg duration-300 flex items-center justify-center gap-1"
-            onMouseEnter={() => setShowProductsDropdown(true)}
+        }`}
+      >
+        {/* Logo */}
+        <Link to={"/"} onClick={handleClick}>
+          <img
+            src="/logo/purnalogo.png"
+            width={155}
+            height={155}
+            alt="Purna Logo"
+          />
+        </Link>
+
+        {/* Navigation */}
+        <nav className="flex justify-center items-center ">
+          <div
+            className="relative group"
+            onMouseLeave={() => {
+              setShowProductsDropdown(false);
+              setActiveCategory(null);
+            }}
           >
-            Products <FaChevronDown size={12} />
-          </button>
+            <button
+              className="capitalize text-lg hover:font-semibold text-center p-2 rounded-lg mx-2 duration-300 flex items-center justify-center gap-1"
+              onMouseEnter={() => setShowProductsDropdown(true)}
+            >
+              Products <FaChevronDown size={12} />
+            </button>
 
-          {showProductsDropdown && (
-            <>
-              <div className="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 min-w-[250px] max-h-[60vh] overflow-y-auto">
-                <div className="relative">
-                  {productCategories.map((category) => (
-                    <div
-                      key={category.name}
-                      className="relative"
-                      onMouseEnter={() => handleMouseEnterCategory(category)}
-                    >
-                      {category.subcategories ? (
-                        <div className="flex items-center justify-between px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                          <span>{category.name}</span>
-                          <FaChevronRight size={12} />
-                        </div>
-                      ) : (
-                        <Link
-                          to={category.link}
-                          className="block px-4 py-2 hover:bg-gray-100"
-                        >
-                          {category.name}
-                        </Link>
-                      )}
-                    </div>
-                  ))}
+            {showProductsDropdown && (
+              <>
+                <div className="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 min-w-[250px] max-h-[60vh] overflow-y-auto">
+                  <div className="relative">
+                    {productCategories.map((category) => (
+                      <div
+                        key={category.name}
+                        className="relative"
+                        onMouseEnter={() => handleMouseEnterCategory(category)}
+                      >
+                        {category.subcategories ? (
+                          <div className="flex items-center justify-between px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                            <span>{category.name}</span>
+                            <FaChevronRight size={12} />
+                          </div>
+                        ) : (
+                          <Link
+                            to={category.link}
+                            className="block px-4 py-2 hover:bg-gray-100"
+                          >
+                            {category.name}
+                          </Link>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/*  Render Subcategories HERE, outside the scrolling div */}
-              {productCategories.map(
-                (category) =>
-                  category.subcategories &&
-                  activeCategory === category.name && (
-                    <div
-                      key={category.name + "-subcategories"} // Add unique key
-                      className="absolute ml-[250px] bg-[#fff] font-semibold   shadow-lg rounded-lg py-2 min-w-[200px] z-10"
-                      style={{
-                        top: () => {
-                          const categoryElement = document.querySelector(
-                            `[data-category-name="${category.name}"]`
-                          );
-                          return categoryElement
-                            ? categoryElement.offsetTop + "px"
-                            : "0px";
-                        },
-                      }}
-                    >
-                      {category.subcategories.map((subcategory) => (
-                        <Link
-                          key={subcategory.name}
-                          to={subcategory.link}
-                          className="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap"
-                        >
-                          {subcategory.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )
-              )}
-            </>
-          )}
+                {/* Render Subcategories HERE */}
+                {productCategories.map(
+                  (category) =>
+                    category.subcategories &&
+                    activeCategory === category.name && (
+                      <div
+                        key={category.name + "-subcategories"}
+                        className="absolute ml-[250px] bg-[#fff] font-semibold shadow-lg rounded-lg py-2 min-w-[200px] z-10"
+                        style={{
+                          top: () => {
+                            const categoryElement = document.querySelector(
+                              `[data-category-name="${category.name}"]`
+                            );
+                            return categoryElement
+                              ? categoryElement.offsetTop + "px"
+                              : "0px";
+                          },
+                        }}
+                      >
+                        {category.subcategories.map((subcategory) => (
+                          <Link
+                            key={subcategory.name}
+                            to={subcategory.link}
+                            className="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap"
+                          >
+                            {subcategory.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )
+                )}
+              </>
+            )}
+          </div>
+          <Link
+            to={"/shop"}
+            className="hover:text-blue-500 text-center hover:font-semibold mx-5"
+          >
+            Shop
+          </Link>
+          <Link
+            to={"/aboutus"}
+            className="hover:text-blue-500 text-center hover:font-semibold mx-5 text-wrap"
+          >
+            About Us
+          </Link>
+          <Link
+            to={"/FAQ"}
+            className="hover:text-blue-500 text-center hover:font-semibold mx-5"
+          >
+            FAQ
+          </Link>
+        </nav>
+
+        {/* Login & Cart */}
+        <div className="flex justify-start md:justify-center lg:justify-end items-center w-fit">
+          {" "}
+          {/* or use inline-block */}
+          <button
+            className="mx-2 px-8 text-gray-900 ring-gray-500 hover:ring-blue-700 p-2 ring-1 rounded-lg font-semibold hover:bg-blue-700 hover:text-white duration-500"
+            onClick={() => setShowLoginModal(true)}
+          >
+            Login
+          </button>
+          <FaCartShopping
+            className="mx-2 cursor-pointer"
+            size={30}
+            onClick={() => setShowCart(true)}
+          />
         </div>
-        <Link
-          to={"/shop"}
-          className=" hover:text-blue-500  text-center hover:font-semibold"
-        >
-          Shop
-        </Link>
-        <Link
-          to={"/aboutus"}
-          className=" hover:text-blue-500  text-center hover:font-semibold"
-        >
-          About Us
-        </Link>
-        <Link
-          to={"/FAQ"}
-          className=" hover:text-blue-500  text-center hover:font-semibold"
-        >
-          FAQ
-        </Link>
-      </nav>
-      <div className="flex justify-end items-center">
-        <button
-          className="mx-2 px-8 text-gray-900 ring-gray-500 hover:ring-blue-700 p-2 ring-1 rounded-lg font-semibold hover:bg-blue-700 hover:text-white duration-500"
-          onClick={() => setShowLoginModal(true)}
-        >
-          Login
-        </button>
-        <FaCartShopping
-          className="mx-2 cursor-pointer"
-          size={30}
-          onClick={() => setShowCart(true)}
-        />
-      </div>
-      {showCart && <AddCart setShowCart={setShowCart} isOpen={showCart} />}
-      {showLoginModal && (
-        <Modal setModalClose={setShowLoginModal}>
-          {showRegisterForm ? (
-            <Register setShowRegisterForm={setShowRegisterForm} />
-          ) : (
-            <Login setShowRegisterForm={setShowRegisterForm} />
-          )}
-        </Modal>
-      )}
-    </header>
+
+        {showCart && <AddCart setShowCart={setShowCart} isOpen={showCart} />}
+        {showLoginModal && (
+          <Modal setModalClose={setShowLoginModal}>
+            {showRegisterForm ? (
+              <Register setShowRegisterForm={setShowRegisterForm} />
+            ) : (
+              <Login setShowRegisterForm={setShowRegisterForm} />
+            )}
+          </Modal>
+        )}
+      </header>
+      <HomeHeaderResponsive />
+    </>
   );
 };
 

@@ -202,7 +202,7 @@ const HomeSection6 = () => {
     <div className=" bg-[#e9e8e8] py-5">
       <Swiper
         ref={swiperRef}
-        slidesPerView={2.1}
+        slidesPerView={1}
         centeredSlides={true}
         centeredSlidesBounds={true}
         loop={true} // loop mode enabled
@@ -214,10 +214,21 @@ const HomeSection6 = () => {
         }}
         navigation={true}
         autoplay={{ delay: 2000, disableOnInteraction: false }}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2.1,
+          },
+          1280:{
+            slidesPerView:2.1
+          }
+        }}
         className="mySwiper w-full min-h-[500px]"
       >
         {products.map((product, index) => (
-          <SwiperSlide key={index} className="p-4">
+          <SwiperSlide key={index} className="p-4 flex">
             <div className="relative text-white">
               <h1 className=" absolute top-10 left-5 font-semibold text-sm">
                 {product.title}
@@ -231,11 +242,13 @@ const HomeSection6 = () => {
               <p className="absolute top-44 w-[16rem] text-sm font-semibold left-5">
                 {product.description}
               </p>
-              <button className=" absolute bottom-9 left-5 p-2 rounded-lg hover:bg-black duration-300 uppercase  bg-[#312e2e] text-white px-8 text-xl font-semibold">Exlore </button>
+              <button className=" absolute bottom-9 left-5 p-2 rounded-lg hover:bg-black duration-300 uppercase  bg-[#312e2e] text-white px-8 text-xl font-semibold">
+                Exlore{" "}
+              </button>
               <img
                 src={`${product.image}`}
                 alt="NO Image Found"
-                className="w-full rounded-xl"
+                className="md:w-full h-[26rem] rounded-xl w-[22rem]"
               />
             </div>
           </SwiperSlide>

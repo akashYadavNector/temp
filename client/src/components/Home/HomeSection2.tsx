@@ -9,25 +9,26 @@ const HomeSection2 = () => {
     { name: "kroger", logo: logo },
     { name: "walgreen", logo: logo },
     { name: "Publix", logo: logo },
+    { name: "Costco", logo: logo },
   ]);
   return (
-    <div className="grid justify-center text-white bg-[#000] py-3">
-      <h2 className="text-center text-xl font-thin uppercase my-4">
-        <img src="/SliderOne/img1." alt="" />
+    <div className="grid  justify-center text-white bg-[#000] py-3">
+      <h2 className="text-center text-xl lg:font-thin sm:text-xl font-semibold uppercase my-4">
+        {/* <img src="/SliderOne/img1." alt="" /> */}
         Also Available At
       </h2>
-      <div className="grid grid-flow-row justify-start md:grid-flow-col gap-4">
+      <div className="grid grid-flow-row grid-cols-2 lg:grid-flow-col justify-start gap-4">
         {brandList.map((item) => (
-          <div className="flex items-center">
-            <span className=" text-xl font-semibold mx-3 uppercase text-gray-300">
-              {item.name}
-            </span>
+          <div className="flex items-center justify-start col-span-1">
             <img
               src={item.logo}
               width={75}
               height={75}
               className="rounded-full invert-[100%]"
             />
+            <span className=" text-xl font-semibold mx-3 uppercase text-gray-300">
+              {item.name}
+            </span>
           </div>
         ))}
       </div>

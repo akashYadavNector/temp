@@ -18,11 +18,9 @@ const HomeSection3 = () => {
   ]);
 
   return (
-    <div className=" h-[26rem] bg-gray-200 py-10">
-      <div className="mx-5">
+    <div className=" h-[40rem] md:h-[26rem] bg-gray-200 py-10">
+      <div className="mx-2 md:mx-5">
         <Swiper
-          // spaceBetween={}
-          slidesPerView={5}
           modules={[Pagination, Navigation, Autoplay]}
           pagination={{
             clickable: true,
@@ -30,28 +28,37 @@ const HomeSection3 = () => {
           }}
           navigation={true}
           autoplay={{ delay: 2000, disableOnInteraction: false }}
-          className="mySwiper w-full  min-h-40"
+          className="mySwiper w-full min-h-50"
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
+          slidesPerView={1} // Default for very small screens
+          breakpoints={{
+            640: {
+              slidesPerView: 2, // Show 2 slides on small screens
+            },
+            1024: {
+              slidesPerView: 3, // Show 3 slides on medium screens
+            },
+            1280: {
+              slidesPerView: 5, // Show 5 slides on large screens
+            },
+          }}
         >
           {paginationItem.map((item) => (
-            <SwiperSlide
-              key={item.name}
-              className="relative cursor-pointer"
-            >
+            <SwiperSlide key={item.name} className="relative cursor-pointer">
               <div className="relative group flex justify-center mx-0">
                 <img
                   src={item.image}
                   alt="No Image Found"
-                  className="rounded-lg transition-all duration-300 group-hover:brightness-50 w-56"
+                  className="rounded-lg transition-all duration-300 group-hover:brightness-50  w-[24rem] lg:w-56 md:w-[20rem] "
                 />
-                <h1 className="flex items-center capitalize absolute top-5 left-[36%] text-yellow-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h1 className="flex items-center capitalize absolute top-5 left-[40%] md:left-[30%] text-yellow-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {item.name}
                 </h1>
 
                 <a
                   href={item.link}
-                  className="flex items-center absolute bottom-5 left-[35%] text-yellow-50"
+                  className="flex items-center absolute bottom-5 left-[40%] md:left-[35%] text-yellow-50"
                 >
                   <span>Discover</span> <FaArrowRight />
                 </a>
