@@ -2,54 +2,119 @@ import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
-const HomeHeaderResponsive = () => {
+interface childProps {
+  setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const HomeHeaderResponsive = ({ setShowCart }: childProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleCartOpen = () => {
+    console.log("handle cart open is working fine ");
+
+    setIsMenuOpen(false);
+    setShowCart(true);
+  };
+  // const products = [
+  //   {
+  //     title: "Ashwagandha Gummies",
+  //     link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+  //   },
+  //   {
+  //     title: "Apple Cider Vinegar Gummies",
+  //     link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+  //   },
+  //   {
+  //     title: "Probiotic+ Gummies",
+  //     link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+  //   },
+  //   {
+  //     title: "Matcha Mind",
+  //     link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+  //   },
+  //   {
+  //     title: "Beets Cardio Gummies",
+  //     link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+  //   },
+  //   {
+  //     title: "Extra-Strength Sleep",
+  //     link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+  //   },
+  //   {
+  //     title: "Dreamy Sleep Gummies",
+  //     link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+  //   },
+  //   {
+  //     title: "Supergreens Gummies",
+  //     link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+  //   },
+  //   {
+  //     title: "Superfruits Beauty Gummies",
+  //     link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+  //   },
+  //   {
+  //     title: "Triple Action Immune Gummies",
+  //     link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+  //   },
+  //   {
+  //     title: "Women's Multi Gummies",
+  //     link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+  //   },
+  // ];
   const products = [
     {
       title: "Ashwagandha Gummies",
-      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+      link: "Shop/ProductIcons/a thing of beauty.png",
+      colorCode: "#B0DCE8", // Light Blue
     },
     {
       title: "Apple Cider Vinegar Gummies",
-      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+      link: "Shop/ProductIcons/Acv.png",
+      colorCode: "#E17167", // Red
     },
     {
       title: "Probiotic+ Gummies",
-      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+      link: "Shop/ProductIcons/all that glitters.png",
+      colorCode: "#63BCA4", // Green
     },
     {
       title: "Matcha Mind",
-      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+      link: "Shop/ProductIcons/ashwangandha.png",
+      colorCode: "#63BCA4", // Green
     },
     {
       title: "Beets Cardio Gummies",
-      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+      link: "Shop/ProductIcons/bright as day.png",
+      colorCode: "#A35267", // Reddish-Purple
     },
     {
       title: "Extra-Strength Sleep",
-      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+      link: "Shop/ProductIcons/cranberry.png",
+      colorCode: "#59316A", // Purple
     },
     {
       title: "Dreamy Sleep Gummies",
-      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+      link: "Shop/ProductIcons/good morning sunshine.png",
+      colorCode: "#CDB4DA", // Lavender
     },
     {
       title: "Supergreens Gummies",
-      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+      link: "Shop/ProductIcons/pretty women.png",
+      colorCode: "#37875B", // Darker Green
     },
     {
       title: "Superfruits Beauty Gummies",
-      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
+      link: "Shop/ProductIcons/sweet dreamzz.png",
+      colorCode: "#D97E36", // Orange
     },
-    {
-      title: "Triple Action Immune Gummies",
-      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
-    },
-    {
-      title: "Women's Multi Gummies",
-      link: "https://goli.com/cdn/shop/files/mm-benefits-mobile.jpg?v=9324384516208770450",
-    },
+    // {
+    //   title: "Triple Action Immune Gummies",
+    //   link: "/images/product/item10.png",
+    //   colorCode: "#F0B07B" // Light Orange
+    // },
+    // {
+    //   title: "Women's Multi Gummies",
+    //   link: "/images/product/item11.png",
+    //   colorCode: "#E64584" // Hot Pink
+    // }
   ];
 
   return (
@@ -88,18 +153,19 @@ const HomeHeaderResponsive = () => {
       </nav>
 
       {/* Login & Cart */}
-      <div className="hidden md:flex items-center gap-4">
+      {/* <div className="hidden md:flex items-center gap-4">
         <button
           className="px-4 py-2 text-gray-900 ring-gray-500 hover:ring-blue-700 ring-1 rounded-lg font-semibold hover:bg-blue-700 hover:text-white duration-500"
           onClick={() => console.log("Login clicked")}
         >
           Login
         </button>
-        <FaCartShopping size={30} />
-      </div>
+      </div> */}
+      {/* <FaCartShopping size={30} /> */}
 
       {/* Burger Menu for Mobile */}
-      <div className="md:hidden">
+      <div className="md:hidden flex items-center min-w-[5rem] justify-between">
+        <FaCartShopping size={25} onClick={handleCartOpen} />
         {!isMenuOpen ? (
           <FaBars size={30} onClick={() => setIsMenuOpen(true)} />
         ) : (
@@ -115,14 +181,22 @@ const HomeHeaderResponsive = () => {
             className="absolute top-5 right-5 cursor-pointer"
             onClick={() => setIsMenuOpen(false)}
           />
-          <div className="grid grid-flow-row grid-cols-2 gap-3 px-2 mx-4 mt-24 ">
-            {products.map((item) => (
-              <div className=" ring-1 ring-black relative">
-                <img src={item.link} alt="" />
-                <span className=" absolute top-2 text-center font-semibold">
+          <div className="grid grid-flow-row  relative grid-cols-2 gap-3 px-2 mx-4 mt-24 border-t-gray-400 border py-3">
+            <span className="absolute top-[-40px] p-2 px-3 bg-black text-white rounded-t font-bold">
+              Gummies
+            </span>
+            {products.map((item, index) => (
+              <Link
+              to={item.link}
+                className={` bg-[${item.colorCode}] bg-opacity-90 relative flex justify-center rounded-xl shadow-lg shadow-[${item.colorCode}]`}
+                key={index}
+              >
+                <img src={item.link} alt="" className=" w-4/5" />
+                <span className=" absolute top-2 text-sm text-center font-semibold">
                   {item.title}
                 </span>
-              </div>
+                <span className="absolute bottom-3 text-[10px]">Click to know more</span>
+              </Link>
             ))}
           </div>
           <nav className="flex flex-col w-full text-2xl py-3">

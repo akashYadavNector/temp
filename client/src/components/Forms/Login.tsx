@@ -71,7 +71,7 @@ const Login = ({ setShowRegisterForm }: LoginProps) => {
           {/* Send OTP Button */}
           <button
             className="w-full sm:w-3/12 mt-2 sm:mt-0 flex justify-center items-center bg-blue-600 p-2 sm:p-3 
-        hover:bg-blue-700 duration-300 text-white font-bold lg:text-sm sm:text-base rounded-lg sm:rounded-none sm:rounded-r-lg"
+        hover:bg-blue-700 duration-300 text-white font-semibold lg:text-sm sm:text-base rounded-lg sm:rounded-none sm:rounded-r-lg"
           >
             Send OTP
           </button>
@@ -90,7 +90,7 @@ const Login = ({ setShowRegisterForm }: LoginProps) => {
         <button
           onClick={handleLogin}
           className="text-center my-4 w-full sm:w-4/6 md:w-3/6 lg:w-2/5 py-2 sm:py-3 
-        bg-blue-600 hover:bg-blue-800 duration-300 rounded-lg font-bold text-white text-sm sm:text-base"
+        bg-blue-600 hover:bg-blue-800 duration-300 rounded-lg font-semibold text-white text-sm sm:text-base"
         >
           Submit
         </button>
@@ -98,7 +98,7 @@ const Login = ({ setShowRegisterForm }: LoginProps) => {
 
       {/* Register Link */}
       <span
-        className="text-blue-500 text-center cursor-pointer hover:text-blue-800 text-sm sm:text-base mt-2"
+        className="text-blue-500 text-center cursor-pointer hover:text-blue-800 text-sm mt-2"
         onClick={() => setShowRegisterForm(true)}
       >
         Don't have an Account?

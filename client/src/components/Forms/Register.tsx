@@ -68,7 +68,7 @@ const Register = ({ setShowRegisterForm }: RegisterProps) => {
             maxLength={10}
             className=" w-6/12 px-3 border-none outline-none focus:ring-0 focus:border-transparent py-3 "
           />
-          <button className=" flex justify-center bg-blue-600 rounded-r-xl py-3 w-3/12 border-r-3xl hover:bg-blue-700 duration-300 text-white font-bold">
+          <button className=" flex justify-center bg-blue-600 rounded-r-xl py-3 w-3/12 border-r-3xl hover:bg-blue-700 duration-300 text-white font-semibold">
             Verify OTP
           </button>
         </span>
@@ -81,13 +81,13 @@ const Register = ({ setShowRegisterForm }: RegisterProps) => {
         </div>
         <button
           onClick={handleLogin}
-          className="text-center my-8 w-2/5 py-2 bg-blue-600 hover:bg-blue-800 duration-300 rounded-lg font-bold text-white"
+          className="text-center my-8 w-2/5 py-2 bg-blue-600 hover:bg-blue-800 duration-300 rounded-lg font-semibold text-white"
         >
           Create Account
         </button>
       </div>
       <span
-        className=" text-blue-500 text-center cursor-pointer hover:text-blue-800"
+        className=" text-blue-500 text-center text-sm cursor-pointer hover:text-blue-800"
         onClick={() => setShowRegisterForm(false)}
       >
         Already have an Account

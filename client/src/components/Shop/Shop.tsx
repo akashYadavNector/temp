@@ -153,7 +153,7 @@ const Shop = () => {
       <Header />
       <div>
         <div
-          className={`text-4xl flex mx-4  md:mx-16 ${shopStyle.scrollableContainer}`}
+          className={`text-4xl flex mx-4 md:mx-16 md:bg-white my-3 rounded-lg ${shopStyle.scrollableContainer}`}
         >
           {productLogoList.map((item, index) => (
             <div
@@ -236,7 +236,7 @@ const Shop = () => {
                 </button>
                 <button
                   onClick={handlePackButtonButtonClick}
-                  className="bg-white px-6   *:py-4  md:px-12 md:py-6 lg:px-6 lg:py-4 custom-1360:px-10 custom-1360:py-6 custom-1360:mx-3 rounded-full text-sm font-semibold uppercase ring-1 ring-gray-400 hover:bg-gray-50 transition-colors custom-550:px-12 custom-550:py-6"
+                  className="bg-white px-6 *:py-4  md:px-12 md:py-6 lg:px-6 lg:py-4 custom-1360:px-10 custom-1360:py-6 custom-1360:mx-3 rounded-full text-sm font-semibold uppercase ring-1 ring-gray-400 hover:bg-gray-50 transition-colors custom-550:px-12 custom-550:py-6"
                 >
                   pack 2
                 </button>

@@ -315,6 +315,7 @@ const Header = () => {
           </Modal>
         )}
       </header>
+      {/* responsive header for mobile view  */}
       <HomeHeaderResponsive />
     </>
   );

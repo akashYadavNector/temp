@@ -1,6 +1,6 @@
 /* Scrollbar.module.css */
 .scrollableContainer {
-  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-x: scroll; /* Enable horizontal scrolling */
   scrollbar-width: thin; /* For Firefox */
   scrollbar-color: #565b5f transparent; /* For Firefox */
 }

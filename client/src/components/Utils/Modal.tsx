@@ -29,10 +29,10 @@ const Modal = ({ children, setModalClose }: ModalProps) => {
           <button
             onClick={handleModalClose}
             className="text-gray-400 ring-1 ring-gray-400 rounded-lg
-        w-full sm:w-2/5 py-2 sm:py-3 px-4
+        w-full sm:w-4/12 py-2 sm:py-1
         hover:text-white hover:bg-gray-600 
         transition-colors duration-300
-        text-sm sm:text-base font-medium"
+        text-sm sm:text-base font-normal"
           >
             Close
           </button>

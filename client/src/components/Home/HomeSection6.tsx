@@ -139,8 +139,8 @@ const HomeSection6 = () => {
   const products = [
     {
       name: "Melatonin", // Changed based on screenshot
-      image: "/SliderTwo/Artboard 5.jpg", // Keeping the same image path
-      color: "bg-blue-500",
+      image: "/SliderTwo/Cranberry.png", // Keeping the same image path
+      color: "#c84660",
       title: "Say Hello to Goli® Dreamy Sleep Gummies",
       subtitle: "For restful sleep",
       description:
@@ -150,8 +150,8 @@ const HomeSection6 = () => {
     },
     {
       name: "Women's Multi",
-      image: "/SliderTwo/Artboard 4.jpg",
-      color: "bg-yellow-500",
+      image: "/SliderTwo/Cranberry.png",
+      color: "#c84660",
       title: "Say Hello to Goli® Women's Complete Multi Gummies",
       subtitle: "Your Daily Caffeine Kick",
       description:
@@ -161,8 +161,8 @@ const HomeSection6 = () => {
     },
     {
       name: "Immune Support",
-      image: "/SliderTwo/Artboard 1.jpg",
-      color: "bg-orange-500",
+      image: "/SliderTwo/Cranberry.png",
+      color: "#c84660",
       title: "Say Hello to Purna Gummies®",
       subtitle: "Our delicious Orange Gummies",
       description:
@@ -172,8 +172,8 @@ const HomeSection6 = () => {
     },
     {
       name: "Supergreens",
-      image: "/SliderTwo/Artboard 2.jpg",
-      color: "bg-orange-300",
+      image: "/SliderTwo/Cranberry.png",
+      color: "#c84660",
       title: "Say Hello to Purna Gummies®",
       subtitle: "Supergreens Gummies",
       description:
@@ -183,8 +183,8 @@ const HomeSection6 = () => {
     },
     {
       name: "Ashwagandha",
-      image: "/SliderTwo/Artboard 3.jpg",
-      color: "bg-purple-500",
+      image: "/SliderTwo/Cranberry.png",
+      color: "#c84660",
       title: "Say Hello to Purna Gummies®",
       subtitle: "Ashwagandha Gummies",
       description: "Traditional herb for stress support and relaxation",
@@ -221,34 +221,34 @@ const HomeSection6 = () => {
           768: {
             slidesPerView: 2.1,
           },
-          1280:{
-            slidesPerView:2.1
-          }
+          1280: {
+            slidesPerView: 2.1,
+          },
         }}
         className="mySwiper w-full min-h-[500px]"
       >
         {products.map((product, index) => (
-          <SwiperSlide key={index} className="p-4 flex">
-            <div className="relative text-white">
-              <h1 className=" absolute top-10 left-5 font-semibold text-sm">
-                {product.title}
-              </h1>
-              <h5 className="absolute top-20 left-5 font-bold text-3xl ">
-                {product.name}
-              </h5>
-              <h5 className="absolute top-32 left-5 font-bold text-sm ">
-                {product.subtitle}
-              </h5>
-              <p className="absolute top-44 w-[16rem] text-sm font-semibold left-5">
-                {product.description}
-              </p>
-              <button className=" absolute bottom-9 left-5 p-2 rounded-lg hover:bg-black duration-300 uppercase  bg-[#312e2e] text-white px-8 text-xl font-semibold">
-                Exlore{" "}
-              </button>
+          <SwiperSlide key={index} className="p-4">
+            <div
+              className={`relative bg-[${product.color}] flex flex-col items-center md:flex-row md:justify-between md:items-start text-white rounded-2xl`}
+            >
+              <div className=" ml-4 flex flex-col md:mt-12 text-center md:text-start mt-5 ">
+                <h1 className="font-semibold text-sm md:my-1">
+                  {product.title}
+                </h1>
+                <h5 className="font-bold text-3xl mt-2">{product.name}</h5>
+                <h5 className="font-bold text-sm ">{product.subtitle}</h5>
+                <p className=" text-sm font-semibold mt-5 md:my-5">
+                  {product.description}
+                </p>
+                <button className=" p-2 absolute md:static bottom-3 self-center rounded-lg hover:bg-black duration-300 uppercase  bg-[#312e2e] text-white text-xl font-semibold w-3/5 md:my-10">
+                  Exlore{" "}
+                </button>
+              </div>
               <img
                 src={`${product.image}`}
                 alt="NO Image Found"
-                className="md:w-full h-[26rem] rounded-xl w-[22rem]"
+                className="md:w-1/2 rounded-xl object-cover"
               />
             </div>
           </SwiperSlide>
