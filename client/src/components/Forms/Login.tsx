@@ -82,7 +82,7 @@ const Login = ({ setShowRegisterForm }: LoginProps) => {
           <input
             type="text"
             placeholder="Enter your OTP"
-            className="w-full sm:w-4/6 md:w-3/6 lg:w-2/6 border p-2 sm:p-4 rounded-lg text-sm sm:text-base"
+            className="w-full sm:w-4/6 md:w-3/6 lg:w-3/6 border p-2 sm:p-4 rounded-lg text-sm sm:text-base"
           />
         </div>
 

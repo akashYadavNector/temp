@@ -230,7 +230,7 @@ const HomeSection6 = () => {
         {products.map((product, index) => (
           <SwiperSlide key={index} className="p-4">
             <div
-              className={`relative bg-[${product.color}] flex flex-col items-center md:flex-row md:justify-between md:items-start text-white rounded-2xl`}
+              className={`relative bg-[#c84660] flex flex-col items-center md:flex-row md:justify-between md:items-start text-white rounded-2xl`}
             >
               <div className=" ml-4 flex flex-col md:mt-12 text-center md:text-start mt-5 ">
                 <h1 className="font-semibold text-sm md:my-1">

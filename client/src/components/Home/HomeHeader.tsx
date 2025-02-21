@@ -17,7 +17,7 @@ const Header = () => {
   const [activeCategory, setActiveCategory] = useState(null);
   const [showCart, setShowCart] = useState<boolean>(false);
   const [showRegisterForm, setShowRegisterForm] = useState<boolean>(true);
-
+  const [showAboutDropDown, setShowAboutDropdown] = useState(false);
   const productCategories = [
     {
       name: "Multivitamin",
@@ -202,16 +202,16 @@ const Header = () => {
               className="capitalize text-lg hover:font-semibold text-center p-2 rounded-lg mx-2 duration-300 flex items-center justify-center gap-1"
               onMouseEnter={() => setShowProductsDropdown(true)}
             >
-              Products <FaChevronDown size={12} />
+              Products <FaChevronDown className="ml-2" size={12} />
             </button>
-
             {showProductsDropdown && (
               <>
-                <div className="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 min-w-[250px] max-h-[60vh] overflow-y-auto">
+                <div className="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 min-w-[250px] max-h-[60vh] overflow-y-auto your-scrollable-container">
                   <div className="relative">
                     {productCategories.map((category) => (
                       <div
                         key={category.name}
+                        data-category-name={category.name} // Add this attribute
                         className="relative"
                         onMouseEnter={() => handleMouseEnterCategory(category)}
                       >
@@ -232,7 +232,6 @@ const Header = () => {
                     ))}
                   </div>
                 </div>
-
                 {/* Render Subcategories HERE */}
                 {productCategories.map(
                   (category) =>
@@ -240,16 +239,16 @@ const Header = () => {
                     activeCategory === category.name && (
                       <div
                         key={category.name + "-subcategories"}
-                        className="absolute ml-[250px] bg-[#fff] font-semibold shadow-lg rounded-lg py-2 min-w-[200px] z-10"
+                        className="absolute ml-[250px] bg-[#fff] mt-12 font-semibold shadow-lg rounded-lg py-2 min-w-[200px] z-10"
                         style={{
-                          top: () => {
-                            const categoryElement = document.querySelector(
+                          top: `${
+                            (document.querySelector(
                               `[data-category-name="${category.name}"]`
-                            );
-                            return categoryElement
-                              ? categoryElement.offsetTop + "px"
-                              : "0px";
-                          },
+                            )?.offsetTop || 0) -
+                            (document.querySelector(
+                              ".your-scrollable-container"
+                            )?.scrollTop || 0)
+                          }px`,
                         }}
                       >
                         {category.subcategories.map((subcategory) => (
@@ -274,17 +273,35 @@ const Header = () => {
             Shop
           </Link>
           <Link
-            to={"/aboutus"}
-            className="hover:text-blue-500 text-center hover:font-semibold mx-5 text-wrap"
-          >
-            About Us
-          </Link>
-          <Link
             to={"/FAQ"}
             className="hover:text-blue-500 text-center hover:font-semibold mx-5"
           >
             FAQ
           </Link>
+          <div
+            className="relative"
+            onMouseLeave={() => setShowAboutDropdown(false)}
+          >
+            <button
+              className="capitalize text-lg hover:font-semibold text-center p-2 rounded-lg mx-2 duration-300 flex items-center justify-center gap-1"
+              onMouseEnter={() => setShowAboutDropdown(true)}
+            >
+              About Us <FaChevronDown className="ml-2" size={12} />
+            </button>
+            {showAboutDropDown && (
+              <div className="absolute bg-white min-w-[250px] border-2">
+                <div className=" border p-2">
+                  <Link to={"our-Story"}>Our Story</Link>
+                </div>
+                <div className="p-2">
+                  <Link to={"our-Food"}>Purna for Food</Link>
+                </div>
+                <div className="p-2">
+                  <Link to={"inside-gummy"}>Inside Gummies</Link>
+                </div>
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Login & Cart */}
@@ -316,9 +333,32 @@ const Header = () => {
         )}
       </header>
       {/* responsive header for mobile view  */}
-      <HomeHeaderResponsive />
+      <HomeHeaderResponsive setShowCart={setShowCart} />
     </>
   );
 };
 
 export default Header;
+
+{
+  /* <select>
+            <option value="">About Us</option>
+            <option value="">
+              <Link to={"about-us"}>Our Story</Link>
+            </option>
+            <option value="">
+              <Link to={"purna-gummies-food"}>Purna Gummies Food</Link>
+            </option>
+            <option value="">
+              <Link to={"inside-gummy"}>Inside Gummy</Link>
+            </option>
+          </select> */
+}
+{
+  /* <Link
+            to={"/aboutus"}
+            className="hover:text-blue-500 text-center hover:font-semibold mx-5 text-wrap"
+          >
+            About Us
+          </Link> */
+}

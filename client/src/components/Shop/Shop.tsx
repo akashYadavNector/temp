@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../Home/HomeHeader";
 import shopStyle from "./Shop.module.css";
+import Footer from "../Home/Footer";
 const Shop = () => {
   const productLogoList = [
     {
@@ -44,52 +45,52 @@ const Shop = () => {
     {
       name: "(single) a thing of beauty.png",
       location: "Shop/ShopProducts/",
-      link: "Shop/ShopProducts/(single)a thing of beauty.png",
+      link: "Single Products/0.1.png",
     },
     {
       name: "(single) ACV.png",
       location: "Shop/ShopProducts/",
-      link: "Shop/ShopProducts/(single) ACV.png",
+      link: "Single Products/0.2.png",
     },
     {
       name: "(single) All that glitter.png",
       location: "Shop/ShopProducts/",
-      link: "Shop/ShopProducts/(single) All that glitter.png",
+      link: "Single Products/0.3.png",
     },
     {
       name: "(single) ashwangadha.png",
       location: "Shop/ShopProducts/",
-      link: "Shop/ShopProducts/(single) ashwangadha.png",
+      link: "Single Products/0.4.png",
     },
     {
       name: "(single) Bright as day.png",
       location: "Shop/ShopProducts/",
-      link: "Shop/ShopProducts/(single) Bright as day.png",
+      link: "Single Products/0.6.png",
     },
     {
       name: "(single) Cranberry.png",
       location: "Shop/ShopProducts/",
-      link: "Shop/ShopProducts/(single) Cranberry.png",
+      link: "Single Products/0.7.png",
     },
     {
       name: "(single) good morning su.png",
       location: "Shop/ShopProducts/",
-      link: "Shop/ShopProducts/(single) good morning sunshine.png",
+      link: "Single Products/0.8.png",
     },
     {
       name: "(single) pretty women.png",
       location: "Shop/ShopProducts/",
-      link: "Shop/ShopProducts/(single) pretty women.png",
+      link: "Single Products/0.9.png",
     },
     {
       name: "(single) sweet dreams.png",
       location: "Shop/ShopProducts/",
-      link: "Shop/ShopProducts/(single) sweet dreams.png",
+      link: "Single Products/0.10.png",
     },
     {
       name: "(single) youthful you.png",
       location: "Shop/ShopProducts/",
-      link: "Shop/ShopProducts/(single) youthful you.png",
+      link: "Single Products/0.11.png",
     },
     {
       name: "a thing of beauty.png",
@@ -153,7 +154,7 @@ const Shop = () => {
       <Header />
       <div>
         <div
-          className={`text-4xl flex mx-4 md:mx-16 md:bg-white my-3 rounded-lg ${shopStyle.scrollableContainer}`}
+          className={`text-4xl flex mx-4 md:mx-14  bg-white my-3 rounded-lg ${shopStyle.scrollableContainer}`}
         >
           {productLogoList.map((item, index) => (
             <div
@@ -171,52 +172,58 @@ const Shop = () => {
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2  3xl:grid-cols-3 gap-4 px-4 md:mx-32 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2  2xl:grid-cols-3 gap-4 px-4 md:mx-32 lg:px-12 2xl:mx-56">
           {images.map((item) => (
             <div className="bg-blue-200 rounded-lg p-4 flex flex-col">
               {/* Product Name */}
-              <span className="text-lg font-semibold mb-4 text-center">
+              <span className="text-lg font-semibold mb-2 text-center">
                 {item.name}
               </span>
 
               {/* Product Content Container */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 ">
                 {/* Image Container */}
-                <div className="flex justify-center items-start">
+                <div className="flex justify-center items-start bg-[#f8f7f7] rounded-xl relative">
                   <img
                     src={item.link}
                     alt="No Image found"
-                    className="object-contain w-full min-h-[20rem] max-h-[250px] md:max-h-[250px]"
+                    width={200}
+                    className="object-contain w-full max-h-[250px] md:max-h-[250px]"
+                    // className=" absolute w-40 left-[%]"
+                  />
+                  <img
+                    src="https://goli.com/cdn/shop/files/3_pack_42OFF_200x200.png?v=1737750815"
+                    alt="No img Found"
+                    className=" w-14 absolute top-[-10px] left-[-10px]"
                   />
                 </div>
-
                 {/* Pricing Options Container */}
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2">
                   {/* Subscribe & Save Option */}
-                  <div className="bg-white rounded-xl p-4 cursor-pointer border border-gray-400 hover:shadow-md transition-shadow">
-                    <span className="font-bold text-sm md:text-base">
+                  <div className="bg-white rounded-xl p-2 cursor-pointer border border-gray-400 hover:shadow-md transition-shadow">
+                    <div className="font-bold text-[11px] md:text-base">
                       Subscribe & Save
-                    </span>
-                    <div className="text-custom-1360 md:text-3xl font-bold mt-1">
+                    </div>
+                    <div className="flex justify-between text-lg text-custom-1360 md:text-3xl font-bold sm:mt-1 items-baseline">
                       $13.48 <span className="text-sm text-blue-400">each</span>
                     </div>
-                    <p className="text-sm mt-1">
+                    <p className="flex justify-between text-[10px] sm:mt-1">
                       Total:$62.98
-                      <span className="line-through ml-3 text-blue-400">
+                      <span className="line-through sm:ml-3 text-blue-400">
                         $25.00
                       </span>
                     </p>
                   </div>
 
                   {/* One-time Purchase Option */}
-                  <div className="bg-white rounded-xl p-4 cursor-pointer border border-gray-400 hover:shadow-md transition-shadow">
-                    <span className="font-bold text-sm md:text-base">
-                      One-time Purchase
-                    </span>
-                    <div className="text-custom-1360 md:text-3xl font-bold mt-1">
+                  <div className="bg-white rounded-xl p-3 cursor-pointer border border-gray-400 hover:shadow-md transition-shadow">
+                    <div className="font-bold text-[10px] md:text-base">
+                      One-time purchase
+                    </div>
+                    <div className="flex justify-between text-lg text-custom-1360 md:text-3xl font-bold sm:mt-1">
                       $14.98 <span className="text-sm text-blue-400">each</span>
                     </div>
-                    <p className="text-sm mt-1">
+                    <p className="flex justify-between text-[10px] sm:mt-1">
                       Total:$62.98
                       <span className="line-through ml-3 text-blue-400">
                         $25.00
@@ -227,25 +234,36 @@ const Shop = () => {
               </div>
 
               {/* Pack Selection */}
-              <div className="flex flex-wrap justify-center gap-2 mt-6 text-lg">
-                <button
+              <div className="flex justify-center gap-2 mt-6 text-lg">
+                <button className=" bg-blue-700 p-4 rounded-full text-base text-white font-semibold xl:px-8">
+                  1-Pack
+                </button>
+                <button className=" bg-white p-4 rounded-full text-base text-black font-semibold xl:px-8">
+                  2-Pack
+                </button>
+                <button className=" bg-white p-4 rounded-full text-base text-black font-semibold xl:px-8">
+                  3-Pack
+                </button>
+                {/* <button className="bg-blue-700 text-white lg:py-3 lg:px-6 rounded-full">Pack 1 </button> */}
+
+                {/* <button
                   onClick={handlePackButtonButtonClick}
-                  className="bg-blue-700 text-white px-6 py-4  md:px-12 md:py-6 lg:px-6 lg:py-4 custom-1360:px-10 custom-1360:py-6 custom-1360:mx-3 rounded-full text-sm font-semibold uppercase ring-1 ring-gray-400 hover:bg-blue-800 transition-colors custom-550:px-12 custom-550:py-6"
+                  className="bg-blue-700 text-white px-4 py-3 custom-550:px-8 custom-550:py-4 md:px-3 md:py-2 lg:px-3 lg:py-2 custom-1360:px-10 custom-1360:py-6 custom-1360:mx-3 rounded-full text-sm font-semibold uppercase ring-1 ring-gray-400 hover:bg-blue-800 transition-colors"
                 >
                   pack 1
                 </button>
                 <button
                   onClick={handlePackButtonButtonClick}
-                  className="bg-white px-6 *:py-4  md:px-12 md:py-6 lg:px-6 lg:py-4 custom-1360:px-10 custom-1360:py-6 custom-1360:mx-3 rounded-full text-sm font-semibold uppercase ring-1 ring-gray-400 hover:bg-gray-50 transition-colors custom-550:px-12 custom-550:py-6"
+                  className="bg-white px-4 py-3 custom-550:px-8 custom-550:py-4 md:px-3  md:py-3 lg:px-2 lg:py-2 custom-1360:px-10 custom-1360:py-6 custom-1360:mx-3 rounded-full text-sm font-semibold uppercase ring-1 ring-gray-400 hover:bg-gray-50 transition-colors"
                 >
                   pack 2
                 </button>
                 <button
                   onClick={handlePackButtonButtonClick}
-                  className="bg-white px-6 py-4  md:px-12 md:py-6 lg:px-6 lg:py-4 custom-1360:px-10 custom-1360:py-6 custom-1360:mx-3 rounded-full text-sm font-semibold uppercase ring-1 ring-gray-400 hover:bg-gray-50 transition-colors custom-550:px-12 custom-550:py-6"
+                  className="bg-white px-4 py-3 custom-550:px-8 custom-550:py-4 md:px-3 md:py-2 lg:px-3 lg:py-2 custom-1360:px-10 custom-1360:py-6 custom-1360:mx-3 rounded-full text-sm font-semibold uppercase ring-1 ring-gray-400 hover:bg-gray-50 transition-colors"
                 >
                   pack 3
-                </button>
+                </button> */}
               </div>
 
               {/* Add to Cart Button */}
@@ -256,6 +274,7 @@ const Shop = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

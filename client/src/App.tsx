@@ -7,6 +7,7 @@ import Home from "./components/Home/Home";
 import Shop from "./components/Shop/shop";
 import Products from "./components/Products/Products";
 import Error from "./components/NotFound/Error";
+import AboutUs from "./components/AboutUs/AboutUs";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products/:productId" element={<Products />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/aboutus" element={<AboutUs />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
